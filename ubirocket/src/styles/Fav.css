@@ -1,0 +1,10 @@
+.container-favorites {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.favorite-title {
+	font-size: 30px;
+	font-weight: bolder;
+}
