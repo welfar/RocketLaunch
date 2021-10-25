@@ -5,9 +5,9 @@ import Fav from "../components/Fav";
 function Favorites() {
 	return (
 		<>
-			<>
+			<div className="container-favorites">
 				<Fav />
-			</>
+			</div>
 			<div className="link-container">
 				<>
 					<Link to="/" className="link-navigation">
