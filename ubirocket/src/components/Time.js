@@ -13,16 +13,15 @@ function Time() {
 	});
 
 	const calculateTimeLeft = () => {
-		let year = new Date().getFullYear();
-		let difference = +new Date(`${year}/11/24`) - +new Date();
+		let difference = +new Date(rocketInfo.launch_date_local) - +new Date();
 		let timeLeft = {};
 
 		if (difference > 0) {
 			timeLeft = {
-				DAYS: Math.floor(difference / (1000 * 60 * 60 * 24)),
-				HOURS: Math.floor((difference / (1000 * 60 * 60)) % 24),
-				MINUTES: Math.floor((difference / 1000 / 60) % 60),
-				SECONDS: Math.floor((difference / 1000) % 60),
+				DAYS: Math.floor(difference / (1000 * 60 * 60 * 24)) || 0,
+				HOURS: Math.floor((difference / (1000 * 60 * 60)) % 24) || 0,
+				MINUTES: Math.floor((difference / 1000 / 60) % 60) || 0,
+				SECONDS: Math.floor((difference / 1000) % 60) || 0,
 			};
 		}
 		return timeLeft;
@@ -43,10 +42,6 @@ function Time() {
 	const timerComponents = [];
 
 	Object.keys(timeLeft).forEach((interval) => {
-		if (!timeLeft[interval]) {
-			return;
-		}
-
 		timerComponents.push(
 			<span>
 				<div className="inter">{timeLeft[interval]}</div>
